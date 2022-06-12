@@ -1,5 +1,6 @@
 class Solution {
     public int maximumUniqueSubarray(int[] nums) {
+        if(nums.length==0) return 0;
         int n = nums.length;
         Set<Integer> set = new HashSet();
         int right =0;
@@ -20,7 +21,6 @@ class Solution {
                 left++;
             }
         }
-        System.out.println(set);
         return max;
     }
 }
