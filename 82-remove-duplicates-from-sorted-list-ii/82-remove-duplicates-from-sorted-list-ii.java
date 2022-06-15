@@ -10,7 +10,6 @@
  */
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
-        Set<Integer> set = new HashSet();
         ListNode curr = new ListNode(-1,head);
         ListNode prev = curr;
         
