@@ -42,8 +42,9 @@ class Solution {
             while(map.size()==count.size()){
                 min = Math.min(min,right-left+1);
                 map.put(s.charAt(left),map.get(s.charAt(left))-1);
-                if(map.get(s.charAt(left))==0)
+                if(map.get(s.charAt(left))==0){
                     map.remove(s.charAt(left));
+                }
                     left++;
                 
             }
