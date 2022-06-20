@@ -93,14 +93,16 @@ class LinkedList
      // You only need to complete this method
      if(head1==null) return head2;
       if(head2==null) return head1;
-      
+      Node result = new Node(-1);
       if(head1.data<head2.data){
+          result = head1;
           head1.next = sortedMerge(head1.next,head2);
-          return head1;
       }
-      else
+      else{
+      result = head2;
           head2.next = sortedMerge(head1,head2.next);
-          return head2;
+      }
+      return result;
       
    } 
 }
