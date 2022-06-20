@@ -19,7 +19,7 @@ class Solution {
         for(String word:wordlist){
             if(!dup.contains(word)){
                 count += word.length()+1;
-                 System.out.println(count);
+
             }
         }
         return count;
