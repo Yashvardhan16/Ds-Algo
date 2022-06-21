@@ -33,57 +33,36 @@ class Rat {
 
 // m is the given matrix and n is the order of matrix
 class Solution {
-    static ArrayList<String> res = new ArrayList<>(); // Static arrayList.
-
+   static ArrayList<String> ans = new ArrayList<>();
     public static ArrayList<String> findPath(int[][] m, int n) {
-           res.clear();
-
-        // If source or destination is a obstacle.
-        if (m[0][0] == 0 || m[n - 1][n - 1] == 0) {
-            return res;
-        }
-
-        printPath("", m, 0, 0, n);
-        return res;
+        // Your code here
+        ans.clear();
+        
+        if(m[n-1][n-1]==0||m[0][0]==0) return ans;
+        helper("",m,0,0,n);
+        return ans;
     }
-
-    static void printPath(String ans, int[][] maze, int row, int col, int n) {
-        // Base Condition.
-        if (row == n - 1 && col == n - 1) {
-            res.add(ans);
+    static void helper(String s,int[][]m,int row,int col,int n){
+        if(row==n-1&& col==n-1){
+            ans.add(s);
             return;
         }
-
-        // Can't go.
-        if (maze[row][col] == 0) {
-            return;
+        if(m[row][col]==0) return;
+        
+        m[row][col] = 0;
+        
+        if(row<n-1){
+            helper(s+'D',m,row+1,col,n);
         }
-
-        // Consider This Cell In My Path.
-        maze[row][col] = 0;
-
-        // To Travel Down.
-        if (row < n - 1) {
-            printPath(ans + 'D', maze, row + 1, col, n);
+        if(col<n-1){
+            helper(s+'R',m,row,col+1,n);
         }
-
-        // To Travel Right.
-        if (col < n - 1) {
-            printPath(ans + 'R', maze, row, col + 1, n);
+        if(row>0){
+            helper(s+'U',m,row-1,col,n);
         }
-
-        // To Travel Up.
-        if (row > 0) {
-            printPath(ans + 'U', maze, row - 1, col, n);
+        if(col>0){
+            helper(s+'L',m,row,col-1,n);
         }
-
-        // To Travel Left.
-        if (col > 0) {
-            printPath(ans + 'L', maze, row, col - 1, n);
-        }
-
-        // BackTrack:- Remove The Changes That We Were Made.
-        maze[row][col] = 1;
+        m[row][col] = 1;
     }
 }
-
