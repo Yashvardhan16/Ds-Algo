@@ -3,6 +3,8 @@ class Solution {
         int n = nums.length;
        PriorityQueue<Integer> pq = new PriorityQueue<>();
             for(int i=1;i<n;i++){
+                if (nums[i-1] >= nums[i]) continue;
+
                 int diff = nums[i]-nums[i-1];
                 if(diff>0){
                 pq.add(diff);
