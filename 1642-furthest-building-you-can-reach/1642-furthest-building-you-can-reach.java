@@ -2,8 +2,8 @@ class Solution {
     public int furthestBuilding(int[] nums, int bricks, int ladders) {
         int n = nums.length;
        PriorityQueue<Integer> pq = new PriorityQueue<>();
-            for(int i=0;i<n-1;i++){
-                int diff = nums[i+1]-nums[i];
+            for(int i=1;i<n;i++){
+                int diff = nums[i]-nums[i-1];
                 if(diff>0){
                 pq.add(diff);
                 }
@@ -11,7 +11,7 @@ class Solution {
                     bricks -= pq.poll();
                 }
               if(bricks<0){
-                  return i;
+                  return i-1;
               }
             }
         return n-1;
