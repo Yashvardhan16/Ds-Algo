@@ -10,6 +10,7 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
+        if(head==null) return true;
         ListNode curr =head;
         Stack<Integer> st = new Stack();
         while(curr!=null){
