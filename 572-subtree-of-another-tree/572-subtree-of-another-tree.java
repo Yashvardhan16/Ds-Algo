@@ -23,7 +23,7 @@ class Solution {
     }
     boolean dfs(TreeNode root, TreeNode sub){
         if(root==sub) return true;
-                if(root==null||sub==null) return false;
+         if(root==null||sub==null) return false;
 
         if(sub.val!=root.val) return false;
         
