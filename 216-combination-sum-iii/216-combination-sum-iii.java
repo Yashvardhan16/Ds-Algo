@@ -6,7 +6,7 @@ class Solution {
     }
     void helper(List<List<Integer>> list,int k,int n,List<Integer> res,int start){
         
-        if(n==0&& k==res.size()){
+        if(n==0&& res.size()==k){
             list.add(new ArrayList<>(res));
             return;
         }
