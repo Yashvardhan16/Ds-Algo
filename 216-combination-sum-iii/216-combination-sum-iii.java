@@ -8,7 +8,6 @@ class Solution {
         
         if(n==0&& res.size()==k){
             list.add(new ArrayList<>(res));
-            return;
         }
         
         for(int i=start;i<=9;i++){
