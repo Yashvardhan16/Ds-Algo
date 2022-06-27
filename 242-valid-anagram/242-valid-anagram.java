@@ -10,7 +10,6 @@ class Solution {
         for(char c:t.toCharArray()){
             map.put(c,map.getOrDefault(c,0)-1);
         }
-        
         for(char i:map.keySet()){
             if(map.get(i)!=0) return false;
          }
