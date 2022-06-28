@@ -5,7 +5,6 @@ class Solution {
         for(char c:s.toCharArray()){
             map.put(c,map.getOrDefault(c,0)+1);
         }
-        System.out.println(map);
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         for(char i:map.keySet()){
             pq.add(map.get(i));
