@@ -16,18 +16,17 @@
 class Solution {
     PriorityQueue<Integer> list = new PriorityQueue();
     public int kthSmallest(TreeNode root, int k) {
-         helper(root,k);
-        int ans =0;
-        for(int i=0;i<k;i++){
-            ans = list.poll();
+         helper(root);
+        for(int i=0;i<k-1;i++){
+            list.poll();
         }
-        return ans;
+        return list.peek();
     }
-    void helper(TreeNode root,int k){
+    void helper(TreeNode root){
         if(root!=null){
-        helper(root.left,k);
+        helper(root.left);
         list.add(root.val);
-        helper(root.right,k);
+        helper(root.right);
         }
     }
 }
