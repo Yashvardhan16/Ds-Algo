@@ -15,7 +15,7 @@ class Solution {
         
         for(int i=start;i<nums.length;i++){
             if(i>start && nums[i]==nums[i-1]) continue;
-            // if(k-nums[i]<0) break;
+            if(k-nums[i]<0) break;
             res.add(nums[i]);
             helper(list,res,nums,k-nums[i],i+1);
             res.remove(res.size()-1);
