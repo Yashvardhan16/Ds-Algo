@@ -1,7 +1,7 @@
 class Solution {
     public List<List<Integer>> combinationSum2(int[] nums, int k) {
          Arrays.sort(nums);
-        List<List<Integer>>  list = new LinkedList();
+        List<List<Integer>>  list = new ArrayList();
         helper(list,new ArrayList<>(),nums,k,0);
         return list;
     }
