@@ -16,7 +16,7 @@ class Solution {
         for(int i=m;i<n;i++){
         count1[s.charAt(i) -'a']++;
         count1[s.charAt(i-m) -'a']--;
-        if(Arrays.equals(count1,count2)) { list.add(i-m+1);}
+        if(Arrays.equals(count1,count2)) list.add(i-m+1);
         }
         return list;
     }
