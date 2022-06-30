@@ -36,30 +36,22 @@ class Solution {
         // code here
         boolean[] vis = new boolean[v];
         boolean[] recs = new boolean[v];
-        
         for(int i=0;i<v;i++){
             if(!vis[i]){
-                if(dfs(i,adj,vis,recs)){
-                    return true;
-                }
+                if(dfs(vis,adj,i,recs)) return true;
             }
         }
         return false;
     }
-    boolean dfs(int v,ArrayList<ArrayList<Integer>> adj, boolean[] vis, boolean[] recs ){
+    boolean dfs(boolean[] vis ,ArrayList<ArrayList<Integer>> adj,int v,  boolean[] recs ){
         vis[v] = true;
-        recs[v] = true;
-        
+        recs[v]  = true;
         for(Integer neighbor:adj.get(v)){
             if(!vis[neighbor]){
-                if(dfs(neighbor,adj,vis,recs)){
-                    return true;
-                }
-                }
-                else if(recs[neighbor]){
-                    return true;
-                
-                }
+                if(dfs(vis,adj,neighbor,recs))return true;
+            }else if(recs[neighbor]){
+                return true;
+            }
         }
         recs[v] = false;
         return false;
