@@ -60,31 +60,29 @@ class Main {
 class Solution
 {
     //Function to return list containing vertices in Topological order. 
-    static int[] topoSort(int v, ArrayList<ArrayList<Integer>> list) 
+    static int[] topoSort(int v, ArrayList<ArrayList<Integer>> adj) 
     {
         // add your code here
         boolean[] vis = new boolean[v];
-        Stack<Integer> st = new Stack<>();
+        Stack<Integer> st = new Stack();
         for(int i=0;i<v;i++){
             if(!vis[i]){
-                dfs(i,list,vis,st);
+                dfs(vis,adj,i,st);
             }
         }
         int[] ans = new int[st.size()];
         int i=0;
         while(!st.isEmpty()){
-            ans[i] = st.pop();
-            i++;
+            ans[i++] = st.pop();
         }
         return ans;
     }
-   static void dfs(int v , ArrayList<ArrayList<Integer>> list, boolean[] vis,  Stack<Integer> st){
-        
+    static void dfs(boolean[] vis , ArrayList<ArrayList<Integer>> adj,int v,Stack<Integer> st ){
         vis[v] = true;
         
-        for(int neightbor:list.get(v)){
-            if(!vis[neightbor]){
-                dfs(neightbor,list,vis,st);
+        for(int neighbor:adj.get(v)){
+            if(!vis[neighbor]){
+                dfs(vis,adj,neighbor,st);
             }
         }
         st.push(v);
