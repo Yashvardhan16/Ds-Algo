@@ -9,12 +9,15 @@ class Solution {
            char curr = s.charAt(right);
             map.put(curr,map.getOrDefault(curr,0)+1);
                 maxrepeat = Math.max(maxrepeat,map.get(curr));
-            if(right-left+1-maxrepeat>k){
-                char delete = s.charAt(left);
-                map.put(delete,map.get(delete)-1);
-                left++;
-            }
-            max = Math.max(max,right-left+1);
+            int currentSizeOfWindow = right - left + 1;
+        if(currentSizeOfWindow - maxrepeat > k) {
+            char delete = s.charAt(left);
+            map.put(delete, map.get(delete) - 1);
+            left++;
+            currentSizeOfWindow = right - left + 1;
+        }
+
+        max = Math.max(max, currentSizeOfWindow);
             
         }
         return max;
