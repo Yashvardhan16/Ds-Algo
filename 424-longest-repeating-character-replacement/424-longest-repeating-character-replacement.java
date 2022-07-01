@@ -7,10 +7,7 @@ class Solution {
         int max =0;
         for( right=0;right<s.length();right++){
            char curr = s.charAt(right);
-            if(!map.containsKey(curr)){
-                map.put(curr,0);
-            }
-            map.put(curr,map.get(curr)+1);
+            map.put(curr,map.getOrDefault(curr,0)+1);
                 maxrepeat = Math.max(maxrepeat,map.get(curr));
             if(right-left+1-maxrepeat>k){
                 char delete = s.charAt(left);
