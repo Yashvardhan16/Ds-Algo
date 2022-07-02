@@ -4,11 +4,9 @@ class Solution {
         for(char c:s.toCharArray()){
             map.put(c,map.getOrDefault(c,0)+1);
         }
-        System.out.println(map);
         StringBuilder sb = new StringBuilder();
         PriorityQueue<Character> pq = new PriorityQueue<>((a,b) -> map.get(b)-map.get(a));
         pq.addAll(map.keySet());
-           System.out.println(pq);
         while(pq.size()>1){
             char first = pq.poll();
                 char second = pq.poll();
