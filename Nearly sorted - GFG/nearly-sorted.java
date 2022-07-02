@@ -36,12 +36,16 @@ class Solution
     ArrayList <Integer> nearlySorted(int arr[], int num, int k)
     {
         // your code here
-        PriorityQueue<Integer> pq = new PriorityQueue();
-        for(int i:arr){
-            pq.add(i);
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            pq.add(arr[i]);
+            if(i>=k){
+                list.add(pq.poll());
+            }
         }
-        ArrayList<Integer> list = new ArrayList();
-        while(pq.size()>0){
+        
+        while(!pq.isEmpty()){
             list.add(pq.poll());
         }
         return list;
