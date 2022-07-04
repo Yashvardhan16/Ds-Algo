@@ -10,11 +10,11 @@ class Solution {
             int k = n-1;
             while(j<k){
                 int currsum = nums[i]+nums[j]+nums[k];
-                if(currsum>target){
+                if(currsum>target)
                     k--;
-                }else {
+                else 
                     j++;
-                }
+                
                if(Math.abs(sum-target)>Math.abs(currsum-target)){
                    sum = currsum;
                }
