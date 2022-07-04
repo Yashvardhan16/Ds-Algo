@@ -11,7 +11,7 @@ class Solution {
                 set.add(s.charAt(right));
                 right++;
                 len = Math.max(len,set.size());
-            }else if(set.contains(s.charAt(left))){
+            }else {
                 set.remove(s.charAt(left));
                 left++;
             }
