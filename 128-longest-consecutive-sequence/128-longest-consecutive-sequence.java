@@ -10,7 +10,6 @@ class Solution {
             int currlength=1;
             if(!set.contains(currnums-1)){
                 while(set.contains(currnums+1)){
-                    set.remove(currnums);
                     currnums+=+1;
                     currlength +=1;
                 }
