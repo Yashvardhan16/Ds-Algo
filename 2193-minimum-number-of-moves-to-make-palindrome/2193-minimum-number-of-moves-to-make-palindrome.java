@@ -1,48 +1,16 @@
 class Solution {
     public int minMovesToMakePalindrome(String s) {
-         char []arr=s.toCharArray();
-    int start=0;
-    int n=s.length();
-    int end=s.length()-1;
-    int res=0;
-    while(start<end)
-    {
-        int k=end;
-        if(arr[start]==arr[end])
-        {
-            start++;
-            end--;
-          continue;  
-        }
-        while(arr[start]!=arr[k])
-        {
-            k--;
-            
-        }
-        if(k==start)
-        {
-            res++;
-            swap(arr,start,start+1);
-        }
-        else
-        {
-            while(k<end)
-            {
-                res++;
-                swap(arr,k,k+1);
-                k++;
-            }
-        }
-    }
-        
-        return res;
-}
-public static void swap(char arr[],int i,int j)
-{
-char temp=arr[i];
-arr[i]=arr[j];
-arr[j]=temp;
-}
 
+int res = 0;
+    while (s.length() > 0) {
+        int i = s.indexOf(s.charAt(s.length() - 1));
+        if (i == s.length() - 1) res += i / 2;
+        else {
+            res += i;
+            s = s.substring(0, i) + s.substring(i + 1);
+        }
+        s = s.substring(0, s.length() - 1);
+    }
+    return res;
 }
-    
+}
