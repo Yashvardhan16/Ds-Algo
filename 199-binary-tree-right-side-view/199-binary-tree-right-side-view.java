@@ -21,11 +21,11 @@ class Solution {
         return list;
     }
     void helper(TreeNode root,int depth){
-        if(root!=null){
+        if(root==null) return;
         if(depth==list.size()) list.add(root.val);
         
         helper(root.right,depth+1);
         helper(root.left,depth+1);
-        }
+        
     }
 }
