@@ -17,13 +17,7 @@ LinkedList<Integer> list;
     }
     
     public int getMin() {
-        int min = Integer.MAX_VALUE;
-        for(int i:list){
-            if(i<min){
-                min = i;
-            }
-        }
-        return min;
+       return Collections.min(list);
     }
 }
 
