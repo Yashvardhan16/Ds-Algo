@@ -17,8 +17,13 @@ LinkedList<Integer> list;
     }
     
     public int getMin() {
-        PriorityQueue<Integer> pq= new PriorityQueue(list);
-        return pq.poll();
+        int min = Integer.MAX_VALUE;
+        for(int i:list){
+            if(i<min){
+                min = i;
+            }
+        }
+        return min;
     }
 }
 
