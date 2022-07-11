@@ -9,15 +9,15 @@ class Solution {
              int k = nums.length-1;
            
             while(j<k){
-                 int sum =nums[j]+nums[k];
-            if(sum==-nums[i]){
+                 int sum =nums[i]+nums[j]+nums[k];
+            if(sum==0){
                 List<Integer> res = new ArrayList();
                 res.add(nums[i]);
                  res.add(nums[j]);
                  res.add(nums[k]);
                 list.add(res);
                 j++;k--;
-            }else if(sum>-nums[i]){
+            }else if(sum>0){
                 k--;
             }else{
                 j++;
