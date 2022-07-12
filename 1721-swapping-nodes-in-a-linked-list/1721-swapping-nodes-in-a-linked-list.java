@@ -17,12 +17,12 @@ class Solution {
             head = head.next;
             
         }
+        
         s = head;
         while(head.next!=null){
             f = f.next;
             head = head.next;
         }
-        
         int temp = f.val;
         f.val = s.val;
         s.val = temp;
