@@ -1,25 +1,21 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        Map<Character,Integer>map = new HashMap();
-        int left=0;
-        int right=0;
+        int n = s.length();
+        int left =0;
         int maxrepeat =0;
+        Map<Character,Integer> map = new HashMap();
         int max =0;
-        for( right=0;right<s.length();right++){
-           char curr = s.charAt(right);
-            map.put(curr,map.getOrDefault(curr,0)+1);
-                maxrepeat = Math.max(maxrepeat,map.get(curr));
-            int currentSizeOfWindow = right - left + 1;
-        if(currentSizeOfWindow - maxrepeat > k) {
-            char delete = s.charAt(left);
-            map.put(delete, map.get(delete) - 1);
-            left++;
-            currentSizeOfWindow = right - left + 1;
+        for(int i=0;i<n;i++){
+            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+            maxrepeat = Math.max(maxrepeat,map.get(s.charAt(i)));
+             int currsize  = i-left+1;
+            if(currsize-maxrepeat>k){
+                 map.put(s.charAt(left),map.getOrDefault(s.charAt(left),0)-1);
+                      left++;
+                currsize = i-left+1;
+            }
+            max = Math.max(max,currsize);
         }
-
-        max = Math.max(max, currentSizeOfWindow);
-            
-        }
-        return max;
+            return max;
     }
 }
