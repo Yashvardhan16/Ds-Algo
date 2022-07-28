@@ -10,7 +10,6 @@ class Solution {
         for(char c:map.keySet()){
             if(map.get(c)>0) return false;
         }
-        System.out.println(map);
         return true;
     }
 }
