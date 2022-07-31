@@ -3,12 +3,12 @@ class Solution {
         int[] maxB = new int[26];
         for(String s:words2){
             int[] f= new int[26];
-            for(char c:s.toCharArray())
+            for(char c:s.toCharArray()){
             f[c-'a']++;
             
             for(int i=0;i<26;i++)
                 maxB[i] = Math.max(maxB[i],f[i]);
-            
+            }
         }
         List<String> list = new ArrayList();
          for(String s:words1){
