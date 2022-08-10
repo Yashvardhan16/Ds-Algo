@@ -29,13 +29,12 @@ class Solution {
         return helper(head,null);
     }
     TreeNode helper(ListNode head,ListNode end){
-        
         ListNode slow = head;
         ListNode fast = head;
         if(slow==end) return null;
         while(fast!=end && fast.next!=end){
             slow = slow.next;
-         fast = fast.next.next;
+            fast = fast.next.next;
         }
         ListNode mid = slow;
         TreeNode root = new TreeNode(mid.val);
