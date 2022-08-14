@@ -18,6 +18,6 @@ class Solution {
             if(i==0 && sb.length()==0) continue;
             sb.append(i);
         }
-        return sb.toString();
+        return sb.toString().trim();
     }
 }
