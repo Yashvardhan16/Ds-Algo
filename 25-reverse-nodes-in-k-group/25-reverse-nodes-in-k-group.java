@@ -11,23 +11,27 @@
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         if(head==null||head.next==null||k<=1) return head;
-        ListNode curr =head;
-        int count =0;
-        while(curr!=null && count<k){
+        int len =0;
+        ListNode curr = head;
+        while(curr!=null && len<k){
             curr = curr.next;
-            count++;
+            len++;
         }
-        if(count==k){
+        
+        if(len==k){
             curr = reverseKGroup(curr,k);
             
-            while(count-->0){
+            while(len-->0){
                 ListNode temp = head.next;
-                head.next =curr;
+                head.next = curr;
                 curr = head;
-                head = temp;
+                head =temp;
             }
-        head = curr;
+            
+            head = curr;
+            System.out.println(curr.val);
         }
         return head;
+        
     }
 }
