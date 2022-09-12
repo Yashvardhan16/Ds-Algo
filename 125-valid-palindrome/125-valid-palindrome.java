@@ -11,7 +11,7 @@ class Solution {
                 st.push(s.charAt(i));
      }
         }
-        for(int i=0;i<sb.length();i++){
+        for(int i=0;i<sb.length()/2;i++){
             if(st.pop()!=sb.charAt(i)){
                 return false;
             }
