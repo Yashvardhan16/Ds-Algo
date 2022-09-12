@@ -1,8 +1,7 @@
 class Solution {
-      Map<String,Boolean> map = new HashMap();
+    Map<String,Boolean> map = new HashMap();
     public boolean wordBreak(String s, List<String> wordDict) {
-       if(wordDict.contains(s)) return true;
-        
+        if(wordDict.contains(s)) return true;
         if(map.containsKey(s)) return map.get(s);
         
         for(int i=0;i<s.length();i++){
@@ -12,7 +11,7 @@ class Solution {
                 return true;
             }
         }
-        map.put(s,false);
-        return false;
+               map.put(s,false);
+               return false;
     }
 }
