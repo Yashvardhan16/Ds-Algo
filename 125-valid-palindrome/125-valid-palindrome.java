@@ -11,7 +11,6 @@ class Solution {
                 st.push(s.charAt(i));
      }
         }
-         System.out.println(sb);
         for(int i=0;i<sb.length();i++){
             if(st.pop()!=sb.charAt(i)){
                 return false;
