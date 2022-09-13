@@ -19,9 +19,9 @@ class Solution {
         return max;
     }
     int helper(Map<Integer,Boolean> map,int i){
-        int count =0;
+        int count =1;
        
-            while(map.containsKey(i)){
+            while(map.containsKey(i+1)){
                 count++;
                 i++;
             }
