@@ -1,23 +1,23 @@
 class Solution {
-    String[] map = new String[]{" "," ","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-         List<String> list = new ArrayList<>();
+    String[] map = new String[]{""," ","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
     public List<String> letterCombinations(String digits) {
-   
+        List<String> list = new ArrayList();
         if(digits.length()==0) return list;
-        helper(0,list,digits,new StringBuilder());
+        backtrack(list,digits,new StringBuilder(),0);
         return list;
     }
-    void helper(int length, List<String> list,String digits,StringBuilder temp){
+    void backtrack(List<String> list ,String digits,StringBuilder sb,int length){
         if(length==digits.length()){
-            list.add(temp.toString());
+            list.add(sb.toString());
             return;
         }
+        
         char ch = digits.charAt(length);
         String s = map[ch-'0'];
-        for(char c:s.toCharArray()){
-            temp.append(c);
-            helper(length+1,list,digits,temp);
-            temp.deleteCharAt(temp.length()-1);
+        for(int i=0;i<s.length();i++){
+            sb.append(s.charAt(i));
+            backtrack(list,digits,sb,length+1);
+            sb.deleteCharAt(sb.length()-1);
         }
     }
 }
