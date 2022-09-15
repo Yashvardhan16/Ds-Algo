@@ -1,17 +1,17 @@
 class Solution {
     public int jump(int[] nums) {
+        int n = nums.length;
+        int steps =0;
         int count =0;
-        int steps = 0;
-        int lastindex =0;
-        
-        for(int i=0;i<nums.length-1;i++){
+        int last_index =0;
+        for(int i=0;i<n-1;i++){
             steps = Math.max(steps,nums[i]+i);
             
-            if(i==lastindex){
+            if(i==last_index){
                 count++;
-                lastindex=steps;
+                last_index=steps;
             }
         }
         return count;
-    }
+        }
 }
