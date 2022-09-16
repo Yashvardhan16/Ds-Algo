@@ -1,18 +1,17 @@
 class Solution {
     public int rob(int[] nums) {
-        if(nums.length==0) return 0;
-        if(nums.length==1) return nums[0];
-        return Math.max(aregatugozaimais(nums,0,nums.length-1),aregatugozaimais(nums,1,nums.length));
+        int n = nums.length;
+        if(n==1) return nums[0];
+        return Math.max(ans(nums,0,n-1),ans(nums,1,n));
     }
-    int aregatugozaimais(int[] nums, int start, int end){
-        int max =0;
-        int prevone =0;
-        int prevtwo =0;
+    
+    int ans(int[] nums,int start,int end){
+        int max =0,prevone=0,prevtwo=0;
         
         for(int i=start;i<end;i++){
             max = Math.max(prevone,prevtwo+nums[i]);
-            prevtwo = prevone;
-            prevone = max;
+            prevtwo=prevone;
+            prevone=max;
         }
         return max;
     }
