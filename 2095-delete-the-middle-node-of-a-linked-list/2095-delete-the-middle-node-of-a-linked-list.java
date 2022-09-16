@@ -21,8 +21,6 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        System.out.println(temp.val);
-        System.out.println(slow.val);
         temp.next = slow.next;
         return curr;
     }
