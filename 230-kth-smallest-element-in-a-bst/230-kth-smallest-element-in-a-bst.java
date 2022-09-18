@@ -14,19 +14,22 @@
  * }
  */
 class Solution {
-    PriorityQueue<Integer> list = new PriorityQueue();
+    PriorityQueue<Integer> pq = new PriorityQueue();
     public int kthSmallest(TreeNode root, int k) {
-         helper(root);
-        for(int i=0;i<k-1;i++){
-            list.poll();
+        if(root==null) return 0;
+        inorder(root);
+        int ans =0;
+        for(int i=0;i<k;i++){
+           ans =pq.poll();
         }
-        return list.peek();
+        
+        return ans;
     }
-    void helper(TreeNode root){
+    void inorder(TreeNode root){
         if(root!=null){
-        helper(root.left);
-        list.add(root.val);
-        helper(root.right);
+            inorder(root.left);
+            pq.add(root.val);
+            inorder(root.right);
         }
     }
 }
