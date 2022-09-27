@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
        for(int i=0;i<n;i++){
            int val = Math.abs(nums[i]);
-           val--;
+           // val--;
            if(nums[val]<0) return Math.abs(nums[i]);
            else nums[val] = -nums[val];
        } 
