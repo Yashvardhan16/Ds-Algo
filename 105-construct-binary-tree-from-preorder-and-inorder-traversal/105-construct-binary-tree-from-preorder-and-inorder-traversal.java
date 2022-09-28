@@ -30,7 +30,7 @@ class Solution {
         root.left = helper(preorder,inorder,ps+1,ps+i-is,is,i-1);
          root.right = helper(preorder,inorder,ps+i-is+1,pe,i+1,ie);
 
-                // break;
+                break;
             }
         }
         return root;
