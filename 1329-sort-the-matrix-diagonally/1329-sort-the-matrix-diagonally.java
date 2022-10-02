@@ -1,21 +1,26 @@
 class Solution {
     public int[][] diagonalSort(int[][] mat) {
-        for(int i=0;i<mat.length;i++){
+        int n = mat.length;
+        int m = mat[0].length;
+        
+        for(int i=0;i<n;i++){
             helper(mat,i,0);
         }
-        for(int i=mat[0].length-1;i>=0;i--){
+        
+        for(int i=m-1;i>=0;i--){
             helper(mat,0,i);
         }
         return mat;
     }
-    void helper(int[][] mat,int r,int c){
+    void helper(int[][] matrix,int row,int col){
+        
         PriorityQueue<Integer> pq = new PriorityQueue();
-        for(int i=r, j=c; i<mat.length && j<mat[0].length;i++,j++){
-            pq.add(mat[i][j]);
+        for(int i=row , j=col;i<matrix.length && j<matrix[0].length;i++,j++){
+            pq.add(matrix[i][j]);
         }
         
         while(pq.size()>0){
-            mat[r++][c++] = pq.poll();
+            matrix[row++][col++] = pq.poll();
         }
     }
 }
