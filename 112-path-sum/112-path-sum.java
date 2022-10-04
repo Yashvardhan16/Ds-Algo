@@ -22,7 +22,6 @@ class Solution {
     boolean helper(TreeNode root, int target){
         if(root==null) return false;
         target-=root.val;
-        System.out.println(target);
         if(0==target && root.left==null && root.right==null){
             return true;
         }
