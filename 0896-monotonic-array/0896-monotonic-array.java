@@ -14,7 +14,7 @@ class Solution {
                 j--;
             }else break;
         }
-        System.out.println(j);
+        
         return i==nums.length||j==-1;
     }
 }
