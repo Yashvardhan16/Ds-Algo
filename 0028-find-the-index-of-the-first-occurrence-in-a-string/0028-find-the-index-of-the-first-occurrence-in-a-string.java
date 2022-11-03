@@ -1,14 +1,20 @@
 class Solution {
-    public int strStr(String s1, String s2) {
-        if(s1.length()==0||s2.length()==0) return 0;
-        if(!s1.contains(s2)) return -1;
+    public int strStr(String haystack, String needle) {
+        if(needle.length()==0||haystack.length()==0) return -1;
+        if(!haystack.contains(needle)) return -1;
+        if(needle.length()>haystack.length()) return -1;
+        if(needle.equals(haystack)) return 0;
         
-        for(int i=0;i<s1.length()-s2.length()+1;i++){
+        for(int i=0;i<haystack.length()-needle.length()+1;i++){
+            int index =0;
+            for(int j=0;j<needle.length();j++){
+                if(haystack.charAt(i+j)==needle.charAt(j)){
+                   index++;
+                }
+                if(index==needle.length()) return i;
+            }
+            index=0;
             
-            for(int j=0;j<s2.length();j++){
-                if(s1.charAt(i+j)!=s2.charAt(j)) break;
-            else if(j==s2.length()-1) return i;
-        }
         }
         return -1;
     }
