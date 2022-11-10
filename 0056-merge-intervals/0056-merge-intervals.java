@@ -10,13 +10,14 @@ class Solution {
             int nextb = i[0];
             int nexte = i[1];
             
-            if(curre>=nextb){
-                curr[0] = Math.min(currb,nextb);
-                curr[1] = Math.max(curre,nexte);
+            if(curre<nextb){
+               list.add(i);
+                curr = i;
                 
             }else{
-                list.add(i);
-                curr = i;
+                
+                 curr[0] = Math.min(currb,nextb);
+                curr[1] = Math.max(curre,nexte);
             }
         }
         return list.toArray(new int[list.size()][2]);
