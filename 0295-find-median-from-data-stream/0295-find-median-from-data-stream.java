@@ -15,7 +15,8 @@ class MedianFinder {
             large.add(num);
             small.add(large.poll());
         }
-        even =!even;
+        if(even==true) even =false;
+        else even =true;
     }
     
     public double findMedian() {
