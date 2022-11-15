@@ -23,11 +23,11 @@ class Solution {
         while(!st.isEmpty()){
             TreeNode temp = st.pop();
             count++;
-            if(temp.right!=null){
-                st.add(temp.right);
-            }
-             if(temp.left!=null){
+            if(temp.left!=null){
                 st.add(temp.left);
+            }
+             if(temp.right!=null){
+                st.add(temp.right);
             }
             
         }
