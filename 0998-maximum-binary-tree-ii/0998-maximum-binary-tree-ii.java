@@ -15,12 +15,12 @@
  */
 class Solution {
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
-        if(root==null) return new TreeNode(val);
+       if(root==null) return new TreeNode(val); 
         
         if(root.val<val){
             TreeNode temp = new TreeNode(val);
             temp.left = root;
-            root = temp;
+            // root = temp;
             return temp;
         }
         
