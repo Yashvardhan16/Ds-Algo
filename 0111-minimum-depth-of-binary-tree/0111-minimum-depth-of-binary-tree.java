@@ -14,19 +14,19 @@
  * }
  */
 class Solution {
+    int min = Integer.MAX_VALUE;
     public int minDepth(TreeNode root) {
         if(root==null) return 0;
-        return helper(root,1);
+        helper(root,1);
+        return min;
     }
-    int helper(TreeNode root,int level){
-        if(root==null) return Integer.MAX_VALUE;
+    void helper(TreeNode root,int level){
+        if(root==null) return;
         
         if(root.left==null && root.right==null){
-            return level;
+            min = Math.min(min,level);
         }
-      int left =  helper(root.left,level+1);
-      int right =  helper(root.right,level+1);
-        
-        return Math.min(left,right);
+        helper(root.left,level+1);
+        helper(root.right,level+1);
     }
 }
