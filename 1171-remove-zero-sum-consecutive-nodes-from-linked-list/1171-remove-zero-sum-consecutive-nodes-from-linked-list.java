@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
-        if(head==null) return head;
+         if(head==null) return head;
       int sum =0;
         ListNode curr =head;
         while(curr!=null){
