@@ -10,16 +10,16 @@
  */
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
-         if(head==null) return head;
-      int sum =0;
+        if(head==null) return null;
         ListNode curr =head;
+        int sum=0;
         while(curr!=null){
             sum+=curr.val;
             if(sum==0) break;
             curr = curr.next;
         }
         if(curr!=null) return removeZeroSumSublists(curr.next);
-        head.next = removeZeroSumSublists(head.next);
+        head.next =  removeZeroSumSublists(head.next);
         return head;
     }
 }
